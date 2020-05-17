@@ -7,14 +7,15 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
 import { MatListModule } from '@angular/material/list';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialogModule } from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TaskListComponent } from './task-list/task-list.component';
+import { DialogRemoveComponent } from './dialog-remove/dialog-remove.component';
 
 @NgModule({
-  declarations: [AppComponent, TaskListComponent],
+  declarations: [AppComponent, TaskListComponent, DialogRemoveComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -23,7 +24,7 @@ import { TaskListComponent } from './task-list/task-list.component';
     MatInputModule,
     MatButtonModule,
     MatListModule,
-    MatDialog,
+    MatDialogModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
