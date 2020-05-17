@@ -29,5 +29,6 @@ import { DialogRemoveComponent } from './dialog-remove/dialog-remove.component';
   providers: [],
   bootstrap: [AppComponent],
   exports: [DialogRemoveComponent],
+  entryComponents: [DialogRemoveComponent],
 })
 export class AppModule {}
