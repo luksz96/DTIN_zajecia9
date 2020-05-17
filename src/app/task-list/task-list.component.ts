@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 
 import { Input, Output, EventEmitter } from '@angular/core';
 import { Task } from '../Task';
@@ -13,7 +13,7 @@ import { DialogRemoveComponent } from '../dialog-remove/dialog-remove.component'
   styleUrls: ['./task-list.component.css'],
 })
 export class TaskListComponent implements OnInit {
-  constructor(private dialog: MatDialog) {}
+  constructor(private dialog: MatDialog, private renderer: Renderer2) {}
 
   ngOnInit() {}
 
@@ -22,6 +22,8 @@ export class TaskListComponent implements OnInit {
 
   @Output()
   remove = new EventEmitter<number>();
+
+  isDone: boolean = false;
 
   removeTask(taskIdx: number) {
     this.remove.emit(taskIdx);
@@ -38,5 +40,17 @@ export class TaskListComponent implements OnInit {
         this.removeTask(result);
       }
     });
+  }
+
+  handleDoneTask() {
+    const element: HTMLElement = document.getElementById('toStrike');
+    if (!this.isDone) {
+      this.renderer.addClass(element, 'isDoneTrue');
+      this.isDone = true;
+    } else {
+      console.log('works');
+      this.renderer.removeClass(element, 'isDoneTrue');
+      this.isDone = false;
+    }
   }
 }
