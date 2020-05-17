@@ -20,4 +20,10 @@ export class AppComponent {
   handleTaskRemove(taskIdx: number) {
     this.tasks.splice(taskIdx, 1);
   }
+
+  onKeydown(event, taskvalue) {
+    if (event.key == 'Enter') {
+      this.handleTaskAdd(taskvalue);
+    }
+  }
 }

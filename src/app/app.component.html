@@ -3,7 +3,12 @@
 </mat-toolbar>
 <div style="padding: 10px;">
   <mat-form-field>
-    <input #newTask matInput placeholder="Nowe zadanie" />
+    <input
+      #newTask
+      matInput
+      placeholder="Nowe zadanie"
+      (keyup)="onKeydown($event, newTask.value)"
+    />
   </mat-form-field>
   <button
     mat-button
