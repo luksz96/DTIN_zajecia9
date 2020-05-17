@@ -31,6 +31,7 @@ export class TaskListComponent implements OnInit {
 
   openRemoveDialog(taskIdx: number, description: string) {
     let dialogRef = this.dialog.open(DialogRemoveComponent, {
+      width: '400px',
       data: [description, taskIdx],
     });
 
